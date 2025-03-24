@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { FaLeaf } from 'react-icons/fa';
 import { MdMenu, MdOutlineShoppingCart } from 'react-icons/md';
-import ReponsiveMenu from '../ReponsiveMenu';
+import ReponsiveMenu from './ReponsiveMenu';
+import { motion } from 'framer-motion';
 
 
 const NavBarMenu = [
@@ -39,7 +40,11 @@ const NavBar = () => {
   return (
     <>
     <nav>
-      <div className="container flex justify-between items-center py-4 md:pt-4">
+      <motion.div 
+      initial={{opacity : 0}}
+      animate={{opacity: 1}}
+      transition={{duration: 1.5, delay: 0.5}}
+      className="container flex justify-between items-center py-4 md:pt-4">
         {/* Logo section Start */}
         <div className='text-2xl flex items-center gap-2 font-bold uppercase'>
           <p className='text-primary'>Fruit</p>
@@ -66,7 +71,7 @@ const NavBar = () => {
          <div className='md:hidden' onClick={() => setOpen(!open)}>
           <MdMenu className='text-4xl'/>
          </div>
-      </div>
+      </motion.div>
     </nav>
    {/* responsive Menu section */}
     <ReponsiveMenu open={open}/>
